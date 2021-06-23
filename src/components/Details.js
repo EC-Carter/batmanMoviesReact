@@ -15,12 +15,13 @@ export class Details extends Component {
 
     render() {
         console.log("printing state",this.state.details)
+        this.state.details = this.props.detailData;
         //let {details} = this.state.details
         //console.log(details)
         return (
             <>
             <div className="details">
-            <h3>{this.state.details.Title != null ? this.state.details.Title : '' }</h3>
+            <h3>{this.state.details.Title == null ? '' : this.state.details.Title }</h3>
             <img src={this.state.details.Poster ? this.state.details.Poster: ''} alt="" height=""/> 
             <h5> Directed By: {this.state.details.Director ? this.state.details.Director: ""}</h5>
             <h5> Released: {this.state.details.Released ? this.state.details.Released: ""}</h5>

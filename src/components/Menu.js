@@ -18,7 +18,9 @@ export class Menu extends Component {
         //console.log(e.target.id)
         let details = await fetch(url)
         let detailData = await details.json()
-        this.setState({movieDetails:detailData})
+        this.setState({movieDetails:detailData}, ()=>{
+            console.log(`what's in our state ${this.state.movieDetails.Title}`);
+        })
         //console.log(this.state.movieDetails)
         //console.log('movie changed')
     }
@@ -44,7 +46,7 @@ export class Menu extends Component {
                 )
             })}
             </ul>
-             <Details detailData={this.state.movieDetails}/> 
+             {this.state.movieDetails== null? "" : <Details detailData={this.state.movieDetails}/> }
             </div>
 
 
