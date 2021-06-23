@@ -44,7 +44,7 @@ export class Menu extends Component {
                 )
             })}
             </ul>
-             <Details detailData={this.state.movieDetails}/> 
+            {this.state.movieDetails?.Title && <Details detailData={this.state.movieDetails}/>} 
             </div>
 
 
