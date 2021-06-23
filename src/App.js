@@ -1,25 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import React, { Component } from 'react'
+import Menu from './components/Menu'
 
-export default App;
+class App extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+          movieData:[]
+
+        }
+    }//eo constructor
+
+
+    componentDidMount = async () => {
+      let url =  `http://www.omdbapi.com/?s=batman&apikey=d772336b`;
+
+      let results = await fetch(url);
+
+      let data = await results.json();
+
+      this.setState({movieData:data.Search})
+      //console.log(data)
+
+
+    }//eo cDM
+
+    render() {
+      
+      return (
+        <>
+          <Menu bat={this.state.movieData}/>
+        </>
+      )
+
+    }//eo render
+
+
+
+}//eo class
+
+export default App
+
