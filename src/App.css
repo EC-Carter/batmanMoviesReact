@@ -8,10 +8,13 @@
 .flex{
     padding:0px;
     width:40%;
+    height:100vh;
     display:flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
     align-content:flex-start;
+    overflow-x: hidden;
+    overflow-y:auto;
     /* background-color: green; */
 }
 
